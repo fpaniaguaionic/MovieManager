@@ -17,10 +17,10 @@ export class AppComponent {
     { title: 'Buscar', url: '/folder/inbox', icon: 'mail' },
     { title: 'Consultar', url: '/folder/outbox', icon: 'paper-plane' },
     { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Acerca de...', url: '/folder/spam', icon: 'warning' },
+    { title: 'Acerca de...', url: '/acercade', icon: 'warning' },
   ];
   public labels = ['Terror', 'Action', 'Comedy',];
   constructor() {
-    addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+    addIcons({});
   }
 }

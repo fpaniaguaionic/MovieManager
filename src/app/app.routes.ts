@@ -11,4 +11,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./folder/folder.page').then((m) => m.FolderPage),
   },
+  {
+    path: 'acercade',
+    loadComponent: () => import('./pages/acercade/acercade.page').then( m => m.AcercadePage)
+  },
 ];
