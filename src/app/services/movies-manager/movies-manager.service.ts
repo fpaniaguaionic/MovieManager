@@ -13,6 +13,9 @@ export class MoviesManagerService {
   public getPeliculas(): Movie[] {
     return this.peliculas;
   }
+  public addPelicula(pelicula: Movie) {
+    this.peliculas.push(pelicula);
+  }
 
   rellenarArray() {
     let p1: Movie = {

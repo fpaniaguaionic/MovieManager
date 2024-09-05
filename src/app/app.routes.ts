@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/victor',
+    redirectTo: 'intro',
     pathMatch: 'full',
   },
   {
@@ -13,14 +13,18 @@ export const routes: Routes = [
   },
   {
     path: 'acercade',
-    loadComponent: () => import('./pages/acercade/acercade.page').then( m => m.AcercadePage)
+    loadComponent: () => import('./pages/acercade/acercade.page').then(m => m.AcercadePage)
   },
   {
     path: 'consulta',
-    loadComponent: () => import('./pages/consulta/consulta.page').then( m => m.ConsultaPage)
+    loadComponent: () => import('./pages/consulta/consulta.page').then(m => m.ConsultaPage)
   },
   {
     path: 'busqueda',
-    loadComponent: () => import('./pages/busqueda/busqueda.page').then( m => m.BusquedaPage)
+    loadComponent: () => import('./pages/busqueda/busqueda.page').then(m => m.BusquedaPage)
+  },
+  {
+    path: 'intro',
+    loadComponent: () => import('./pages/intro/intro.page').then(m => m.IntroPage)
   },
 ];
