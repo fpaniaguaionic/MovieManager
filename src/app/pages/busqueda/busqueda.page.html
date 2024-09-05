@@ -17,11 +17,13 @@
   <div id="container">
     <ion-input label="Buscar" placeholder="Título" [(ngModel)]="tituloBuscado" name="tituloBuscado"
       ngDefaultControl></ion-input>
-    <ion-button expand="full">Buscar</ion-button>
+    <ion-button expand="full" (click)="buscar()">Buscar</ion-button>
+    <ion-progress-bar type="indeterminate" *ngIf="cargando"></ion-progress-bar>
+
     <ion-list>
       <ion-item-sliding *ngFor="let peli of peliculas">
         <ion-item>
-          <ion-label>{{peli.titulo}}-{{peli.anyo}}</ion-label>
+          <ion-label>{{peli.Title}}-{{peli.Year}}</ion-label>
         </ion-item>
         <ion-item-options side="end">
           <ion-item-option>Guardar</ion-item-option>

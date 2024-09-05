@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, IonProgressBar, IonInput, IonButton, IonItemSliding, IonItem, IonLabel, IonItemOptions, IonItemOption, IonList, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from "ionicons";
-import { MoviesManagerService } from 'src/app/services/movies-manager.service';
+import { MoviesManagerService } from 'src/app/services/movies-manager/movies-manager.service';
 import { Movie } from 'src/app/interfaces/movie';
 
 @Component({
@@ -28,7 +28,7 @@ export class ConsultaPage implements OnInit {
   buscar() {
     this.peliculasFiltradas =
       this.s.getPeliculas().filter(
-        p => p.titulo.toUpperCase().includes(this.tituloBuscado.toLocaleUpperCase()));
+        p => p.Title.toUpperCase().includes(this.tituloBuscado.toLocaleUpperCase()));
   }
 
 }

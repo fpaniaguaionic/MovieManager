@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { delay, Observable } from 'rxjs';
-import { Movie } from './interfaces/movie';
+import { Movie } from 'src/app/interfaces/movie';
 import { environment } from 'src/environments/environment';
 
 const BASE_URL = 'https://www.omdbapi.com';
 const API_KEY = environment.OMDB_API_KEY;
-
+//https://www.omdbapi.com?apikey=fe486a03&s=Batman
 @Injectable({
   providedIn: 'root'
 })
 export class PeliculasService {
   private http = inject(HttpClient);
-  public movies: any[] = [];
+  private movies: any[] = [];
   constructor() { }
   getMovie(title: string): Observable<any> {
     return this.http
