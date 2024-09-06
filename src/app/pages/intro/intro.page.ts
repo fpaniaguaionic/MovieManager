@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItemSliding, IonItemOptions, IonItemOption, IonItem, IonLabel, IonButtons, IonImg } from '@ionic/angular/standalone';
 import { addIcons } from "ionicons";
+import { Router } from '@angular/router';
+
+const WAIT_TIME: number = 3300;
 
 @Component({
   selector: 'app-intro',
@@ -13,9 +16,11 @@ import { addIcons } from "ionicons";
 })
 export class IntroPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.router.navigate(['consulta']);
+    }, WAIT_TIME);
   }
-
 }
