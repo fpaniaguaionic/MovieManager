@@ -47,7 +47,6 @@ export class BusquedaPage implements OnInit {
       if (data.Response === 'False') {//Response es específico de OMDB-API
         this.noEncontrado = true;
       } else {
-        console.log(data);
         this.peliculas = data.Search;
       }
     })

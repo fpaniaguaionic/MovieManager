@@ -3,31 +3,38 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Consulta</ion-title>
+    <ion-title *ngIf="!verFavoritos">Consulta</ion-title>
+    <ion-title *ngIf="verFavoritos">Favoritos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Consulta</ion-title>
+      <ion-title size="large" *ngIf="!verFavoritos">Consulta</ion-title>
+      <ion-title size="large" *ngIf="verFavoritos">Favoritos</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
     <div id="formulario">
       <ion-input label="Buscar" placeholder="Título" [(ngModel)]="tituloBuscado" (keyup)="buscar()"></ion-input>
+      <ion-badge>{{peliculasFiltradas.length}}</ion-badge>
     </div>
     <ion-list>
       <ion-item-sliding *ngFor="let peli of peliculasFiltradas">
         <ion-item-options side="start">
-          <ion-item-option color="success">Fav</ion-item-option>
+          <ion-item-option color="success" (click)="setFav(peli)">Fav</ion-item-option>
           <ion-item-option>Ver</ion-item-option>
         </ion-item-options>
         <ion-item>
           <ion-card>
             <ion-card-header>
               <ion-card-title>{{peli.Title}}</ion-card-title>
+              <ion-icon name="heart-sharp" color="danger" size="large" *ngIf="peli.fav"
+                (click)="setFav(peli)"></ion-icon>
+              <ion-icon name="heart-outline" color="danger" size="large" *ngIf="!peli.fav"
+                (click)="setFav(peli)"></ion-icon>
               <ion-card-subtitle>{{peli.Type | titlecase}} ({{peli.Year}})</ion-card-subtitle>
             </ion-card-header>
 
@@ -38,12 +45,12 @@
 
         </ion-item>
         <ion-item-options side="end">
-          <ion-item-option color="danger" (click)="eliminar()">Borrar</ion-item-option>
+          <ion-item-option color="danger" (click)="eliminar(peli)">Borrar</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
   </div>
-  <ion-alert [isOpen]="borrando" header="A Short Title Is Best" subHeader="A Sub Header Is Optional"
-    message="A message should be a short, complete sentence." [buttons]="alertButtons" (didDismiss)="ocultarDialogo()">
+  <ion-alert [isOpen]="borrando" header="Borrar '{{this.peliculaParaBorrar?.Title}}'" subHeader="¿Está seguro?"
+    message="Esta acción no se puede deshacer" [buttons]="alertButtons" (didDismiss)="ocultarDialogo()">
   </ion-alert>
 </ion-content>

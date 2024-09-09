@@ -43,8 +43,16 @@ export class MoviesManagerService {
     }
   }
 
-  //Método privado para agregar la película a la base de datos local
-  private guardarPeliculas() {
+  public deletePelicula(pelicula: Movie | undefined) {
+    if (pelicula != undefined) {
+      let posicionPeliculaBuscada = this.peliculas.indexOf(pelicula);
+      this.peliculas.splice(posicionPeliculaBuscada, 1);
+      this.guardarPeliculas();
+    }
+  }
+
+  //Método public para agregar la película a la base de datos local
+  public guardarPeliculas() {
     this.storage.get(NODO_RAIZ).
       then(() => {
         this.storage.set(NODO_RAIZ, this.peliculas);

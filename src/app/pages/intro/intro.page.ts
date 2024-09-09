@@ -5,7 +5,7 @@ import { IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, IonList, Io
 import { addIcons } from "ionicons";
 import { Router } from '@angular/router';
 
-const WAIT_TIME: number = 3300;
+const WAIT_TIME: number = 2500;
 
 @Component({
   selector: 'app-intro',
@@ -20,7 +20,7 @@ export class IntroPage implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.router.navigate(['consulta']);
+      this.router.navigate(['consulta/false']);
     }, WAIT_TIME);
   }
 }
