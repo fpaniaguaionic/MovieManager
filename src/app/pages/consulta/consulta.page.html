@@ -25,7 +25,7 @@
       <ion-item-sliding *ngFor="let peli of peliculasFiltradas">
         <ion-item-options side="start">
           <ion-item-option color="success" (click)="setFav(peli)">Fav</ion-item-option>
-          <ion-item-option>Ver</ion-item-option>
+          <ion-item-option (click)="verDetalle(peli.imdbID)">Ver</ion-item-option>
         </ion-item-options>
         <ion-item>
           <ion-card>

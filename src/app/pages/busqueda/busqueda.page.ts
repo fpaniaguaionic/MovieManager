@@ -42,7 +42,7 @@ export class BusquedaPage implements OnInit {
   }
   buscar() {
     this.cargando = true;
-    this.peliculasService.getMovie(this.tituloBuscado).subscribe(data => {
+    this.peliculasService.getMovies(this.tituloBuscado).subscribe(data => {
       this.cargando = false;
       if (data.Response === 'False') {//Response es específico de OMDB-API
         this.noEncontrado = true;

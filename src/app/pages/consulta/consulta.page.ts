@@ -6,7 +6,7 @@ import { addIcons } from "ionicons";
 import { MoviesManagerService } from 'src/app/services/movies-manager/movies-manager.service';
 import { Movie } from 'src/app/interfaces/movie';
 import { heartOutline, heartSharp } from 'ionicons/icons';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const iconList = {
   heartOutline, heartSharp,
@@ -30,7 +30,7 @@ export class ConsultaPage implements OnInit {
 
   private activatedRoute = inject(ActivatedRoute);//PARAMETROS DEL ROUTING
 
-  constructor() {
+  constructor(private router: Router) {
     addIcons({ heartSharp, heartOutline });
     this.peliculasFiltradas = this.moviesManagerService.getPeliculas();
   }
@@ -40,6 +40,10 @@ export class ConsultaPage implements OnInit {
     if (this.verFavoritos) {
       this.peliculasFiltradas = this.peliculasFiltradas.filter(p => p.fav == true);
     }
+  }
+
+  public verDetalle(imdbID: string) {
+    this.router.navigateByUrl(`/detalle/${imdbID}`)
   }
 
   public setFav(peliculaFavorita: Movie) {
