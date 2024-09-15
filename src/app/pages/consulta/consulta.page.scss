@@ -6,3 +6,20 @@ ion-menu-button {
     margin-left: 1em;
     width: 95%;
 }
+
+ion-input {
+    display: inline;
+    width: 90%;
+    float: left;
+}
+
+ion-badge {
+    display: inline;
+    float: right;
+    margin-top: 1em;
+    margin-right: 1em;
+}
+
+ion-list {
+    clear: both;
+}

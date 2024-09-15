@@ -22,12 +22,12 @@ const iconList = {
 })
 export class AppComponent {
   public appPages = [
+    { title: 'Películas', url: '/consulta/false', icon: 'eye' },
     { title: 'Buscar', url: '/busqueda', icon: 'search' },
-    { title: 'Consultar', url: '/consulta/false', icon: 'eye' },
-    { title: 'Favorites', url: '/favoritos/true', icon: 'heart' },
+    { title: 'Favoritos', url: '/favoritos/true', icon: 'heart' },
     { title: 'Acerca de...', url: '/acercade', icon: 'warning' },
   ];
-  public labels = ['Terror', 'Action', 'Comedy',];
+  public labels = ['Terror (En desarrollo)', 'Action (En desarrollo)', 'Comedy (En desarrollo)',];
   constructor() {
     addIcons(iconList);
   }

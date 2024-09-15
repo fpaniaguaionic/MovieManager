@@ -1,12 +1,12 @@
-ion-menu-button {
-    color: var(--ion-color-primary);
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-#app-title {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 300px;
-    font-size: 2em;
-    color: orange;
+ion-img {
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
 }
